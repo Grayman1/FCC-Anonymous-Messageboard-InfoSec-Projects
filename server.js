@@ -10,12 +10,33 @@ const runner            = require('./test-runner');
 
 const app = express();
 
+let helmet = require('helmet');
+/*
+// INSTALL HELMET FRAMEGUARD
+app.use(helmet.frameguard({	action: 'sameorigin',}));
+*/
+
+// INSTALL HELMET DNS PREFETCH CONTROL
+app.use(helmet.dnsPrefetchControl({
+	allow: false,
+}))
+
+// INSTALL HELMET REFERRER POLICY CONTROL
+app.use(helmet.referrerPolicy({
+	policy: 'same-origin'
+}))
+
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+
 
 //Sample front-end
 app.route('/b/:board/')
