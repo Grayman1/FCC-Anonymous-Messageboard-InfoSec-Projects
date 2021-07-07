@@ -21,6 +21,7 @@ app.use(helmet.dnsPrefetchControl({
 	allow: false,
 }))
 
+
 // INSTALL HELMET REFERRER POLICY CONTROL
 app.use(helmet.referrerPolicy({
 	policy: 'same-origin'
