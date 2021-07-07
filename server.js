@@ -11,10 +11,10 @@ const runner            = require('./test-runner');
 const app = express();
 
 let helmet = require('helmet');
-/*
+
 // INSTALL HELMET FRAMEGUARD
 app.use(helmet.frameguard({	action: 'sameorigin',}));
-*/
+
 
 // INSTALL HELMET DNS PREFETCH CONTROL
 app.use(helmet.dnsPrefetchControl({
